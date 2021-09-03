@@ -3,16 +3,16 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParagraphModel implements SpeechModel {
+public class TextCompoundPartModel implements SpeechModel {
 
-    private List<SentenceModel> components;
+    private List<SpeechModel> components;
 
-    ParagraphModel() {
+    TextCompoundPartModel() {
         components = new ArrayList<>();
     }
 
-    public static SpeechModel of() {
-        return new ParagraphModel();
+    public static SpeechModel of(){
+        return new TextCompoundPartModel();
     }
 
     @Override
@@ -24,11 +24,11 @@ public class ParagraphModel implements SpeechModel {
 
     @Override
     public void add(SpeechModel component) {
-        components.add((SentenceModel) component);
+        components.add(component);
     }
 
     @Override
     public void remove(SpeechModel component) {
-        components.remove((SentenceModel) component);
+        components.remove(component);
     }
 }

@@ -1,9 +1,9 @@
 package model;
 
-public class ExpressionsModel implements SpeechModel {
+public class ExpressionModel implements SpeechModel {
     private String expr;
 
-    public ExpressionsModel(String expr) {
+    public ExpressionModel(String expr) {
         this.expr = expr;
     }
 
