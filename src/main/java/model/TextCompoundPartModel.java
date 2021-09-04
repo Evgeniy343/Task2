@@ -5,14 +5,14 @@ import java.util.List;
 
 public class TextCompoundPartModel implements SpeechModel {
 
-    private List<SpeechModel> components;
+    private final List<SpeechModel> components;
 
     TextCompoundPartModel() {
-        components = new ArrayList<>();
+        this.components = new ArrayList<>();
     }
 
-    public static SpeechModel of(){
-        return new TextCompoundPartModel();
+    TextCompoundPartModel(List<SpeechModel> components) {
+        this.components = components;
     }
 
     @Override
@@ -30,5 +30,10 @@ public class TextCompoundPartModel implements SpeechModel {
     @Override
     public void remove(SpeechModel component) {
         components.remove(component);
+    }
+
+    @Override
+    public List<SpeechModel> getComponents() {
+        return components;
     }
 }

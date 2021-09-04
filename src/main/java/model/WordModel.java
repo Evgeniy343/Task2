@@ -1,15 +1,17 @@
 package model;
 
-public class WordModel implements SpeechModel {
-    private String wrd;
+import java.util.List;
 
-    public WordModel(String wrd) {
+public class WordModel implements SpeechModel {
+    private final String wrd;
+
+    WordModel(String wrd) {
         this.wrd = wrd;
     }
 
     @Override
     public void print() {
-        System.out.println(wrd);
+        System.out.print(wrd);
     }
 
     @Override
@@ -19,6 +21,11 @@ public class WordModel implements SpeechModel {
 
     @Override
     public void remove(SpeechModel component) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<SpeechModel> getComponents() {
         throw new UnsupportedOperationException();
     }
 }
