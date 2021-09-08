@@ -1,6 +1,7 @@
 package reader;
 
 import java.io.File;
+import java.io.IOException;
 
 public class FileReader implements Reader {
     private static FileReader instance;
@@ -11,14 +12,19 @@ public class FileReader implements Reader {
     @Override
     public String read(File file) throws Exception {
         String text = "";
-        String line;
         try (CustomResourceReader resourceReader = CustomResourceReader.of(file)) {
-            while ((line = resourceReader.getBufferedReader().readLine()) != null) {
-                if (line.equals("")) {
-                    line = "\n";
-                }
-                text += line;
+            text = readText(text, resourceReader);
+        }
+        return text;
+    }
+
+    private String readText(String text, CustomResourceReader resourceReader) throws IOException {
+        String line;
+        while ((line = resourceReader.getBufferedReader().readLine()) != null) {
+            if (line.equals("")) {
+                line = "\n";
             }
+            text += line;
         }
         return text;
     }

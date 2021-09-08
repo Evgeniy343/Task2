@@ -16,7 +16,7 @@ public class ParagraphHandler implements CompoundSpeechHandler {
     private final static Pattern REGEX_TAB = Pattern.compile("\\t");
     private CompoundSpeechHandler nextHandler;
 
-    public ParagraphHandler() {
+    ParagraphHandler() {
     }
 
     @Override
@@ -36,9 +36,8 @@ public class ParagraphHandler implements CompoundSpeechHandler {
     }
 
     private CompoundSpeechContext createParagraphContext() {
-        SimpleSpeechContext simpleSpeechContext = SimpleSpeechContext.of("", "", '\0');
         return new CompoundSpeechContext(SpeechTypeModel.TEXT_COMPOUND_PART
-                , Collections.emptyList(), simpleSpeechContext);
+                , Collections.emptyList(), SimpleSpeechContext.of("", "", '\0'));
     }
 
 

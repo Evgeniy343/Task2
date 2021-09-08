@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class SentenceOnSimpleSpeechParser implements CompoundSpeechParser {
     private final static Pattern SIMPLE_REGEX =
-            Pattern.compile("(([a-zA-Z-]+)|([\\s.—,’()])|([\\p{Punct}\\p{Digit}]{3,}))");
+            Pattern.compile("(([a-zA-Z-]+)|([\\p{Punct}\\p{Digit}]{3,}))|([\\s.—,’()])");
     private static SentenceOnSimpleSpeechParser sentenceParser;
 
     private SentenceOnSimpleSpeechParser() {

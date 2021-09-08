@@ -1,5 +1,6 @@
 package handler;
 
+import interpreter.Interpreter;
 import exception.SpeechNotFoundException;
 import model.SpeechModel;
 import model.SpeechTypeModel;
@@ -18,9 +19,9 @@ public class SentenceHandler implements CompoundSpeechHandler {
 
     private final static Pattern REGEX_WORD = Pattern.compile("[a-zA-Z-]+");
     private final static Pattern REGEX_EXPRESSION = Pattern.compile("[\\p{Punct}\\p{Digit}]{3,}");
-    private final static Pattern REGEX_CHARACTER = Pattern.compile("[\\s.—,’()]");
+    private final static Pattern REGEX_CHARACTER = Pattern.compile("([\\s.—,’])|([()])");
 
-    public SentenceHandler() {
+    SentenceHandler() {
         this.nextHandler = null;
     }
 
@@ -49,7 +50,8 @@ public class SentenceHandler implements CompoundSpeechHandler {
             speechContext = createCharacterContext(simpleSpeech);
         }
         if (isExpression(simpleSpeech)) {
-            speechContext = createExpressionContext(simpleSpeech);
+            int result = Interpreter.newInstance().execute(simpleSpeech);
+            speechContext = createExpressionContext(Integer.toString(result));
         }
         return speechContext;
     }

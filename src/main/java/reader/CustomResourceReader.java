@@ -15,14 +15,14 @@ public class CustomResourceReader implements AutoCloseable {
         this.bufferedReader = new BufferedReader(fileReader);
     }
 
-    public static CustomResourceReader of(File file) throws FileNotFoundException {
-        return new CustomResourceReader(file);
-    }
-
     @Override
     public void close() throws Exception {
         fileReader.close();
         bufferedReader.close();
+    }
+
+    public static CustomResourceReader of(File file) throws FileNotFoundException {
+        return new CustomResourceReader(file);
     }
 
     public BufferedReader getBufferedReader() {

@@ -16,12 +16,16 @@ public class TextHandler implements CompoundSpeechHandler {
     private CompoundSpeechHandler nextHandler;
     private final static Pattern REGEX_NEXT_LINE = Pattern.compile("\\n");
 
+    TextHandler(){
+
+    }
+
     @Override
     public SpeechModel handle(String text) throws SpeechNotFoundException, ParserNotFoundException {
         CompoundSpeechContext textContext = createTextContext();
         SpeechModel paragraphs = SpeechModel.newInstance(textContext);
-        for (String paragraph : TextOnParagraphParser.getInstance().execute(text)) {
-            pushParagraphs(paragraphs, paragraph);
+        for (String paragraphOrNextLine : TextOnParagraphParser.getInstance().execute(text)) {
+            pushParagraphs(paragraphs, paragraphOrNextLine);
         }
         return paragraphs;
     }
