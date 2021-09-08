@@ -9,7 +9,7 @@ public class OperationPriorityFactory implements PriorityFactory {
 
     private static final Map<String, Integer> operatorMap = new HashMap<>();
 
-    private OperationPriorityFactory(){
+    private OperationPriorityFactory() {
         operatorMap.put("|", 6);
         operatorMap.put("^", 7);
         operatorMap.put("&", 8);
@@ -18,10 +18,10 @@ public class OperationPriorityFactory implements PriorityFactory {
         operatorMap.put("~", 14);
     }
 
-    public static OperationPriorityFactory getInstance(){
-        if(instance == null){
-            synchronized (OperationPriorityFactory.class){
-                if(instance == null){
+    public static OperationPriorityFactory getInstance() {
+        if (instance == null) {
+            synchronized (OperationPriorityFactory.class) {
+                if (instance == null) {
                     instance = new OperationPriorityFactory();
                 }
             }

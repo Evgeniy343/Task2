@@ -1,7 +1,7 @@
 package com.epam.jwd.handler;
 
-import com.epam.jwd.interpreter.Interpreter;
 import com.epam.jwd.exception.SpeechNotFoundException;
+import com.epam.jwd.interpreter.Interpreter;
 import com.epam.jwd.model.SpeechModel;
 import com.epam.jwd.model.SpeechTypeModel;
 import com.epam.jwd.parser.SentenceOnSimpleSpeechParser;

@@ -8,8 +8,8 @@ public class ExpressionInterpreter implements Interpreter {
     private ExpressionInterpreter() {
     }
 
-    public static Interpreter getInstance(){
-        if(instance == null){
+    public static Interpreter getInstance() {
+        if (instance == null) {
             instance = new ExpressionInterpreter();
         }
         return instance;

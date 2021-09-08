@@ -16,7 +16,7 @@ public class TextHandler implements CompoundSpeechHandler {
     private CompoundSpeechHandler nextHandler;
     private final static Pattern REGEX_NEXT_LINE = Pattern.compile("\\n");
 
-    TextHandler(){
+    TextHandler() {
 
     }
 

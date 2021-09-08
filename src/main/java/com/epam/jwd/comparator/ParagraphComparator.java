@@ -1,7 +1,6 @@
 package com.epam.jwd.comparator;
 
 import com.epam.jwd.model.SpeechModel;
-import com.epam.jwd.model.TextCompoundPartModel;
 
 import java.util.Comparator;
 

@@ -4,7 +4,7 @@ public interface ReversePolishNotationConverter {
 
     String convert(String expression);
 
-    static ReversePolishNotationConverter instanceReversePolishNotation(){
+    static ReversePolishNotationConverter instanceReversePolishNotation() {
         return ReversePolishNotation.INSTANCE;
     }
 }

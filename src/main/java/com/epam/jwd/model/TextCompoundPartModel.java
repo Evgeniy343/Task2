@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class TextCompoundPartModel implements SpeechModel{
+public class TextCompoundPartModel implements SpeechModel {
 
     private final List<SpeechModel> components;
 

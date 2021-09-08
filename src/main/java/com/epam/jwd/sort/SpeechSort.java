@@ -8,7 +8,7 @@ import com.epam.jwd.model.TextCompoundPartModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpeechSort implements Sort{
+public class SpeechSort implements Sort {
     public SpeechSort() {
     }
 

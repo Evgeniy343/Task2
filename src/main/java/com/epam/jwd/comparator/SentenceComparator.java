@@ -1,10 +1,12 @@
 package com.epam.jwd.comparator;
 
 import com.epam.jwd.model.SpeechModel;
-import com.epam.jwd.model.TextCompoundPartModel;
 import com.epam.jwd.model.WordModel;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
 
 public class SentenceComparator implements Comparator<SpeechModel> {
 
@@ -16,7 +18,7 @@ public class SentenceComparator implements Comparator<SpeechModel> {
         pushWordsLength(o2, wordsLength2);
         Optional<Integer> max1 = wordsLength1.stream().max(Integer::compare);
         Optional<Integer> max2 = wordsLength2.stream().max(Integer::compare);
-        if(max1.isPresent() && max2.isPresent()) {
+        if (max1.isPresent() && max2.isPresent()) {
             System.out.println(max1);
             System.out.println(max2);
             return max1.get() - max2.get();
@@ -26,7 +28,7 @@ public class SentenceComparator implements Comparator<SpeechModel> {
 
     private void pushWordsLength(SpeechModel o, List<Integer> wordsLength1) {
         for (SpeechModel component : o.getComponents()) {
-            if(component.getClass().equals(WordModel.class)){
+            if (component.getClass().equals(WordModel.class)) {
                 wordsLength1.add(component.speechLength());
             }
         }

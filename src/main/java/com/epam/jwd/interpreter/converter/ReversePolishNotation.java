@@ -25,7 +25,7 @@ public enum ReversePolishNotation implements ReversePolishNotationConverter {
         Matcher matcher = pattern.matcher(expression);
 
         List<String> lexemes = new ArrayList<>();
-        while (matcher.find()){
+        while (matcher.find()) {
             lexemes.add(matcher.group());
         }
 
@@ -37,7 +37,7 @@ public enum ReversePolishNotation implements ReversePolishNotationConverter {
                 while (isUnloading(lexeme, lexemeStack)) {
                     appendLexeme(lexemeStack.pop());
                 }
-                if(!lexeme.equals(")")) {
+                if (!lexeme.equals(")")) {
                     lexemeStack.push(lexeme);
                 }
             }
@@ -65,7 +65,7 @@ public enum ReversePolishNotation implements ReversePolishNotationConverter {
             unloadingFromStack(lexemeStack);
             return false;
         } else if (!lexemeStack.isEmpty()) {
-            if(lexeme.equals("(") || lexemeStack.peek().equals("(")) {
+            if (lexeme.equals("(") || lexemeStack.peek().equals("(")) {
                 return false;
             }
             return priorityFactory.getPriority(lexeme) <= priorityFactory.getPriority(lexemeStack.peek());
